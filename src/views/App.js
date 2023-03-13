@@ -10,14 +10,7 @@ function App() {
         <p>
           Hello everyone, My name is Vang This is my frist React app
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
         <MyComponent />
       </header>
     </div>

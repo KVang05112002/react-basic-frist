@@ -1,41 +1,54 @@
 import React from 'react';
-import D2 from './D2.js';
+import ChilComponent from './ChildComponent';
 
 class MyComponent extends React.Component {
     state = {
-        name: 'K Vang',
-        fristname: 'Vang',
-        secondname: 'Jin'
-
+        fristName: '',
+        lastName: '',
+        arrJobs: [
+            { id: 'job1', title: 'Coffee', salary: '200' },
+            { id: 'job2', title: 'Developer', salary: '500' },
+            { id: 'job3', title: 'Project managers', salary: '1500' }
+        ]
     }
 
-    handlechangeName = (event) => {
+    handleonChangeFristname = (event) => {
         this.setState({
-            name: event.target.value
+            fristName: event.target.value
         })
     }
 
-    handleClickButton = () => {
-
-        alert('Thank you click here')
+    handleChangeLastname = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
     }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log('Check data input:', this.state)
+    }
+
 
     render() {
 
         return (
-            <div className='youname'>
-                <div className='frist'>
-                    <input value={this.state.name} type='text' onChange={(event) => this.handlechangeName(event)}></input>
-                    <p>Hello My name is {this.state.name} </p>
-                </div>
-                <div className='second'>
-                    <p>My frist name is {this.state.fristname}</p>
-                </div>
-                <div className='Thrid'>
-                    <button onClick={() => this.handleClickButton()}>Click here</button>
-                </div>
-                <D2 />
-            </div>
+            <>
+                <form action=''>
+                    <label htmlFor='fname'>Frist name:</label><br />
+                    <input type='text' value={this.state.fristName} onChange={(event) => this.handleonChangeFristname(event)} /><br />
+                    <label htmlFor='lname'>Last name:</label><br />
+                    <input type='text' value={this.state.lastName} onChange={(event) => this.handleChangeLastname(event)} /><br />
+                    <input type='submit' onClick={(event) => this.handleSubmit(event)} />
+                </form>
+
+                <ChilComponent
+                    name={this.state.fristName}
+                    age={'20'}
+                    address={'Quy Nhon'}
+                    jobs={this.state.arrJobs}
+                />
+            </>
         )
     }
 }
