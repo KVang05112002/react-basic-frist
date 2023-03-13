@@ -1,5 +1,5 @@
 import React from 'react';
-
+// This is child component
 class ChilComponent extends React.Component {
 
     state = {
@@ -67,8 +67,4 @@ class ChilComponent extends React.Component {
 //         </>
 //     )
 // }
-
-
-
-
 export default ChilComponent;
