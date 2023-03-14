@@ -3,13 +3,13 @@ import React from "react";
 class AddComponent extends React.Component {
 
     state = {
-        titleJobs: '',
+        title: '',
         salary: ''
     }
 
     handleChangeTitleJobs = (event) => {
         this.setState({
-            titleJobs: event.target.value
+            title: event.target.value
         })
     }
 
@@ -26,13 +26,15 @@ class AddComponent extends React.Component {
 
     render() {
         return (
-            <form action=''>
-                <label htmlFor='jobtitle'>Job's title:</label><br />
-                <input type='text' value={this.state.titleJobs} onChange={(event) => this.handleChangeTitleJobs(event)} /><br />
-                <label htmlFor='salary'>Salary:</label><br />
-                <input type='text' value={this.state.salary} onChange={(event) => this.handleChangeSalary(event)} /><br />
-                <input type='submit' onClick={(event) => this.handleSubmit(event)} />
-            </form>
+            <>
+                <form action=''>
+                    <label htmlFor='jobtitle'>Job's title:</label><br />
+                    <input type='text' value={this.state.title} onChange={(event) => this.handleChangeTitleJobs(event)} /><br />
+                    <label htmlFor='salary'>Salary:</label><br />
+                    <input type='text' value={this.state.salary} onChange={(event) => this.handleChangeSalary(event)} /><br />
+                    <input type='submit' onClick={(event) => this.handleSubmit(event)} />
+                </form>
+            </>
         )
     }
 }
