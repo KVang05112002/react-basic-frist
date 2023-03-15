@@ -1,5 +1,8 @@
 import React from 'react';
+import './childComponent.scss';
 // This is child component
+
+
 class ChilComponent extends React.Component {
 
     state = {
@@ -11,6 +14,12 @@ class ChilComponent extends React.Component {
             showJobs: !this.state.showJobs
         })
     }
+
+    handleonClickDelete = (job) => {
+        console.log('check delete job: ', job)
+        this.props.deleteJob(job)
+    }
+
     render() {
         console.log('check data: ', this.props)
         //this is the case write short code
@@ -20,7 +29,7 @@ class ChilComponent extends React.Component {
             <>
                 {showJobs === false ?
                     <div>
-                        <button onClick={() => this.handleShowJob()} >Show</button>
+                        <button className='btn' onClick={() => this.handleShowJob()} >Show</button>
                     </div>
                     :
                     <>
@@ -30,14 +39,16 @@ class ChilComponent extends React.Component {
 
                                     return (
                                         <div key={item.id}>
-                                            {item.title} - {item.salary}
+                                            <ul>
+                                                <li>{item.title} - {item.salary} $ <></> <span onClick={() => this.handleonClickDelete(item)}>x</span></li>
+                                            </ul>
                                         </div>
                                     )
                                 })
                             }
                         </div>
                         <div>
-                            <button onClick={() => this.handleShowJob()}>hide</button>
+                            <button className='btn' onClick={() => this.handleShowJob()}>hide</button>
                         </div>
                     </>
                 }
